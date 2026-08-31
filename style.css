@@ -2296,3 +2296,16 @@ html.light-mode .footer-bottom {
 .hero-copy, .experience-panel, .projects-panel, .contact-panel {
   transition: box-shadow 0.4s, background 0.4s, border 0.4s;
 }
+html {
+  scroll-padding-top: 100px;
+}
+
+#about,
+#experience,
+#projects,
+#github,
+#skills,
+#cta,
+#contact {
+  scroll-margin-top: 100px;
+}
