@@ -2296,8 +2296,10 @@ html.light-mode .footer-bottom {
 .hero-copy, .experience-panel, .projects-panel, .contact-panel {
   transition: box-shadow 0.4s, background 0.4s, border 0.4s;
 }
+/* ===== FINAL MOBILE LAYOUT FIX ===== */
+
 html {
-  scroll-padding-top: 100px;
+  scroll-behavior: smooth;
 }
 
 #about,
@@ -2307,32 +2309,69 @@ html {
 #skills,
 #cta,
 #contact {
-  scroll-margin-top: 100px;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 110px;
-}
-
-section {
-  scroll-margin-top: 110px;
-}
-
-/* Keep About section below the header */
-#about {
-  position: relative;
-  margin-top: 40px;
-  padding-top: 40px;
+  scroll-margin-top: 120px;
 }
 
 @media (max-width: 768px) {
+
+  /* Header stays above everything */
+  .page-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  /* Hero starts normally below header */
+  .hero-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .hero-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* IMPORTANT: remove the extra About spacing */
   #about {
-    margin-top: 70px;
-    padding-top: 30px;
+    position: relative;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
   }
 
   #about .eyebrow {
-    display: none;
+    display: inline-block !important;
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-card {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+
+  .page-header {
+    margin-bottom: 20px;
+  }
+
+  .hero-section {
+    margin-top: 0 !important;
+  }
+
+  #about {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .hero-copy {
+    margin-top: 0 !important;
   }
 }
