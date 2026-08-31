@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammed Sameer — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="page-header reveal">
+      <div class="brand">Mohammed Sameer</div>
+      <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav" id="mainNav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#github">GitHub</a>
+        <a href="#skills">Skills</a>
+        <a href="#cta">Hire Me</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">🌙</button>
+    </header>
+
+    <main class="hero-section">
+      <section id="about" class="hero-grid">
+        <article class="hero-copy reveal">
+          <span class="eyebrow">About me</span>
+          <h1>Hi!  I am </h1><br> <h1>Mohammed Sameer</h1>
+          <p>I am a passionate software developer. I build reliable, responsive web applications using modern PHP, JavaScript and polished design. My objective: challenge myself in a new environment to learn, improve my skills through different projects, and contribute more to the company with my abilities.</p>
+          <div class="cta-section">
+            <a href="resume.pdf" download class="resume-btn" target="_blank"><i class="fas fa-download"></i> Download Resume</a>
+          </div>
+          <div class="social-links">
+            <a href="mailto:mohammedsameer74111@gmail.com" class="social-icon" aria-label="Email" title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://github.com/mohammedsameer07s" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://instagram.com/mohammedsameer07s" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram" title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/mohammed-sameer-65a860308/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn" title="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </article>
+
+        <aside class="hero-card reveal reveal-img">
+          <div class="profile-frame">
+         
+            <img src="profile.jpeg" alt="Profile photo of Mohammed Sameer">
+          </div>
+        </aside>
+      </section>
+
+      <section id="experience" class="experience-panel reveal">
+        <div class="experience-header">
+          <span class="eyebrow">Experience</span>
+          <h2>Work History</h2>
+        </div>
+        <div class="experience-list">
+          
+          <div class="experience-card">
+            <div class="exp-header">
+              <h3>Web Development Intern</h3>
+              <span class="exp-date"> 2026</span>
+            </div>
+            <p class="exp-company">Full Stack Intern</p>
+            <ul>
+              <li>Completed multiple web development projects as part of coursework</li>
+              <li>Learned full-stack development with modern technologies</li>
+              <li>Practiced version control and collaborative development</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="projects-panel reveal">
+        <div class="projects-header">
+          <span class="eyebrow">Projects</span>
+          <h2>Featured Work</h2>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-image" style="background-image: url('https://via.placeholder.com/600x300?text=E-Labour+Platform'); background-size: cover; background-position: center; background-color: #4f7ff0;"></div>
+            <div class="project-content">
+              <h3>E-Labour</h3>
+              <p>A web platform connecting labourers to find job opportunities and employers can hire them based on their skills and availability.</p>
+              <div class="project-tech">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>MySQL</span>
+                <span>PHP</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/mohammedsameer07s/E-Labour" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="project-image" style="background-image: url('https://via.placeholder.com/600x300?text=Missing+Child+Finder'); background-size: cover; background-position: center; background-color: #ff6b6b;"></div>
+            <div class="project-content">
+              <h3>Missing Child Finder</h3>
+              <p>A web platform connecting communities to help find missing children with real-time alerts and poster generation.</p>
+              <div class="project-tech">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>MySQL</span>
+                <span>PHP</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/mohammedsameer07s/FindMyChild" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image" style="background-image: url('https://via.placeholder.com/600x300?text=Portfolio+Website'); background-size: cover; background-position: center; background-color: #3b82f6;"></div>
+            <div class="project-content">
+              <h3>Portfolio Website</h3>
+              <p>A modern, responsive portfolio website showcasing projects and skills with dark/light theme support and smooth animations.</p>
+              <div class="project-tech">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/mohammedsameer07s" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="github" class="github-panel reveal">
+        <div class="github-header">
+          <span class="eyebrow">GitHub</span>
+          <h2>My Contributions</h2>
+        </div>
+        <div class="github-stats">
+          <div class="github-card">
+            <h3><i class="fab fa-github"></i> GitHub Profile</h3>
+            <p>Follow my projects and contributions on GitHub</p>
+            <a href="https://github.com/mohammedsameer07s" target="_blank" rel="noopener noreferrer" class="github-link">
+              <i class="fab fa-github"></i> Visit GitHub Profile
+            </a>
+          </div>
+          <div class="github-card">
+            <h3><i class="fas fa-code-branch"></i> Repositories</h3>
+            <p>E-Labour, Missing Child Finder, Portfolio Website, and more projects</p>
+            <a href="https://github.com/mohammedsameer07s?tab=repositories" target="_blank" rel="noopener noreferrer" class="github-link">
+              <i class="fas fa-external-link-alt"></i> View All Repos
+            </a>
+          </div>
+          <div class="github-card">
+            <h3><i class="fas fa-star"></i> Tech Stack</h3>
+            <div class="tech-stack">
+              <span class="tech-badge">PHP</span>
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">MySQL</span>
+              <span class="tech-badge">HTML/CSS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="stats-panel reveal">
+        <div class="stat-card">
+          <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+          <p>DAVANGERE University · Bachelor of Computer Applications</p>
+          <span class="pill">2023 — 2026</span>
+        </div>
+        
+        <div class="stat-card">
+          <h2><i class="fas fa-code"></i> Technical Skills</h2>
+          <div class="skill-icons">
+            <span><i class="fas fa-code"></i> PHP</span>
+            <span><i class="fab fa-python"></i> Python</span>
+            <span><i class="fab fa-js"></i> JavaScript</span>
+            <span><i class="fas fa-database"></i> MySQL</span>
+            <span><i class="fab fa-html5"></i> Frontend</span>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <h2><i class="fas fa-handshake"></i> Soft Skills</h2>
+          <ul>
+            <li><i class="fas fa-users"></i> Teamwork & Collaboration</li>
+            <li><i class="fas fa-brain"></i> Critical Thinking</li>
+            <li><i class="fas fa-clock"></i> Time Management</li>
+            <li><i class="fas fa-comments"></i> Communication</li>
+          </ul>
+        </div>
+        
+        <div class="stat-card">
+          <h2><i class="fas fa-wrench"></i> Expertise</h2>
+          <ul>
+            <li><i class="fas fa-microscope"></i> User Research</li>
+            <li><i class="fas fa-lightbulb"></i> Problem Solving</li>
+            <li><i class="fas fa-palette"></i> Web Design</li>
+            <li><i class="fas fa-layer-group"></i> Full Stack Development</li>
+          </ul>
+        </div>
+        
+        <div class="stat-card">
+          <h2><i class="fas fa-compass"></i> Interests</h2>
+          <ul>
+            <li><i class="fas fa-palette"></i> Design Trends</li>
+            <li><i class="fas fa-rocket"></i> Technology</li>
+            <li><i class="fas fa-brain"></i> Artificial Intelligence</li>
+          </ul>
+        </div>
+        
+        <div class="stat-card">
+          <h2><i class="fas fa-language"></i> Languages</h2>
+          <ul>
+            <li><span class="flag">🇺🇸</span> English</li>
+            <li><span class="flag">🇮🇳</span> Hindi</li>
+            <li><span class="flag">🇮🇳</span> Kannada</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="cta" class="cta-banner reveal">
+        <div class="cta-content">
+          <div class="cta-text">
+            <span class="eyebrow">Ready to Work Together?</span>
+            <h2>Let's Create Something Amazing</h2>
+            <p>I'm actively looking for exciting opportunities to apply my skills in full-stack development and web design. Whether you need a developer for your project or want to collaborate, I'd love to hear from you!</p>
+            <div class="cta-highlights">
+              <div class="highlight-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Available for Immediate Start</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Full-Stack Development</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Quick Response Time</span>
+              </div>
+            </div>
+          </div>
+          <div class="cta-buttons">
+            <a href="#contact" class="cta-btn primary"><i class="fas fa-envelope"></i> Get in Touch</a>
+            <a href="resume.pdf" download class="cta-btn secondary"><i class="fas fa-file-download"></i> Download Resume</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-panel reveal">
+        <div class="contact-form">
+          <span class="eyebrow">Contact</span>
+          <h2>Send me a message</h2>
+          <p>Use the form below to contact me directly. I will reply as soon as possible.</p>
+          <form onsubmit="sendEmail(event)" id="contactForm">
+            <div class="field-grid">
+              <input type="text" id="name" name="from_name" placeholder="Your Name" required>
+              <input type="email" id="email" name="from_email" placeholder="Your Email" required>
+            </div>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
+            <button type="submit" id="submitBtn">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-spinner" style="display: none;">
+                <i class="fas fa-spinner"></i>
+              </span>
+            </button>
+            <div id="formMessage" class="form-message" style="display: none;"></div>
+          </form>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Mohammed Sameer</h3>
+            <p>Full Stack Developer | Web Designer | Problem Solver</p>
+          </div>
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#skills">Skills</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Connect</h3>
+            <ul>
+              <li><a href="mailto:mohammedsameer74111@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
+              <li><a href="https://github.com/mohammedsameer07s" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+              <li><a href="https://linkedin.com/in/mohammed-sameer-65a860308/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+              <li><a href="https://instagram.com/mohammedsameer07s" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Mohammed Sameer. All rights reserved. | Built with <span style="color: #ff6b6b;">❤️</span> and passion</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("0OAMArC18gUh89aWC"); // replace this with your EmailJS public key from the dashboard
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
