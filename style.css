@@ -172,6 +172,52 @@ ul {
   bottom: 20%;
   left: 10%;
 }
+.side-nav a {
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+
+  color: #9da5b8;
+  text-decoration: none;
+
+  font-size: 17px;
+
+  transition: all 0.25s ease;
+}
+
+.side-nav a:hover {
+  color: #ffffff;
+  background: rgba(70, 100, 255, 0.12);
+}
+
+.side-nav a.active {
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    rgba(102, 117, 255, 0.30),
+    rgba(155, 98, 255, 0.22)
+  );
+
+  border: 1px solid rgba(110, 130, 255, 0.30);
+
+  box-shadow:
+    0 0 20px rgba(80, 100, 255, 0.18);
+}
+
+.side-nav a i {
+  color: #7182ff;
+  transition: color 0.25s ease;
+}
+
+.side-nav a:hover i,
+.side-nav a.active i {
+  color: #ffffff;
+}
 
 
 .orb-three {
