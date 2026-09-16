@@ -216,8 +216,7 @@ ul {
 
   padding: 18px 12px;
 
-  border: 2px #9270FF;
-
+border: 2px solid rgba(146, 112, 255, 0.5);
   border-radius: 24px;
 
   background: rgba(18, 23, 40, 0.82);
