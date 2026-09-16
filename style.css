@@ -1653,3 +1653,48 @@ main {
   }
 
 }
+
+/* FIX DESKTOP MODE ON MOBILE */
+
+@media (max-width: 1100px) and (min-width: 801px) {
+
+  .section,
+  .footer {
+    width: calc(100% - 150px);
+    margin-left: 125px;
+    margin-right: 25px;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 35px;
+    min-height: 100vh;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 6vw, 68px);
+  }
+
+  .hero-description {
+    font-size: 14px;
+    max-width: 520px;
+  }
+
+  .hero-image-card {
+    width: 250px;
+  }
+
+  .floating-card {
+    right: -10px;
+    font-size: 10px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-layout {
+    grid-template-columns: 1fr;
+  }
+
+}
