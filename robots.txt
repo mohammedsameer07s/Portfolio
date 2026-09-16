@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sameer7.netlify.app/sitemap.xml
