@@ -1,533 +1,751 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Mohammed Sameer — Software Developer Portfolio">
-<title>Mohammed Sameer — Portfolio</title>
+  <meta charset="UTF-8">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="style.css">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Mohammed Sameer | BCA graduate and software developer focused on PHP, JavaScript, Python, MySQL and responsive web applications."
+  >
+
+  <meta
+    name="keywords"
+    content="Mohammed Sameer, software developer, web developer, BCA, PHP, JavaScript, Python, MySQL, portfolio"
+  >
+
+  <meta name="author" content="Mohammed Sameer">
+  <meta name="theme-color" content="#080b14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mohammed Sameer | Software Developer">
+  <meta
+    property="og:description"
+    content="Software developer portfolio featuring web development projects, technical skills and experience."
+  >
+  <meta
+    property="og:url"
+    content="https://sameer7.netlify.app/"
+  >
+
+  <link
+    rel="canonical"
+    href="https://sameer7.netlify.app/"
+  >
+
+  <title>Mohammed Sameer | Software Developer Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="bg-orb orb-one"></div>
-<div class="bg-orb orb-two"></div>
-<div class="noise"></div>
+  <a class="skip-link" href="#main-content">
+    Skip to content
+  </a>
 
-<header class="site-header">
-    <a class="brand" href="#about">
-        <span>MS</span>
-        <b>Mohammed Sameer</b>
-    </a>
+  <div class="background-effects" aria-hidden="true">
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <div class="orb orb-three"></div>
+    <div class="noise"></div>
+  </div>
 
-    <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
+  <!-- NAVIGATION -->
+  <nav class="side-nav" id="site-nav" aria-label="Primary navigation">
+
+    <div class="nav-logo">
+      <span>MS</span>
+    </div>
+
+    <button
+      class="menu-toggle"
+      id="menu-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="nav-links"
+    >
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
     </button>
 
-    <nav class="main-nav" id="mainNav">
-        <a href="#about" aria-label="About"><i class="fas fa-house"></i><span>About</span></a>
-        <a href="#experience" aria-label="Experience"><i class="fas fa-briefcase"></i><span>Experience</span></a>
-        <a href="#projects" aria-label="Projects"><i class="fas fa-folder-open"></i><span>Projects</span></a>
-        <a href="#skills" aria-label="Skills"><i class="fas fa-code"></i><span>Skills</span></a>
-        <a href="#contact" aria-label="Contact"><i class="fas fa-envelope"></i><span>Contact</span></a>
-    </nav>
+    <div class="nav-links" id="nav-links">
 
-    <a class="header-cta" href="#contact" aria-label="Let's Talk">
-        <i class="fas fa-arrow-up-right-from-square"></i>
+      <a href="#about" class="nav-link active">
+        <i class="fa-regular fa-user" aria-hidden="true"></i>
+        <span>About</span>
+      </a>
+
+      <a href="#experience" class="nav-link">
+        <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+        <span>Experience</span>
+      </a>
+
+      <a href="#projects" class="nav-link">
+        <i class="fa-solid fa-code" aria-hidden="true"></i>
+        <span>Projects</span>
+      </a>
+
+      <a href="#skills" class="nav-link">
+        <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+        <span>Skills</span>
+      </a>
+
+      <a href="#contact" class="nav-link">
+        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+        <span>Contact</span>
+      </a>
+
+    </div>
+
+    <a
+      class="nav-github"
+      href="https://github.com/Mohammedsameer07s"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Open GitHub profile"
+    >
+      <i class="fa-brands fa-github" aria-hidden="true"></i>
     </a>
-</header>
 
-<main>
+  </nav>
 
-<!-- HERO -->
-<section id="about" class="hero section">
 
-    <div class="hero-copy reveal">
+  <!-- MAIN -->
+  <main id="main-content">
 
-        <div class="availability">
-            <span></span>
-            Available for opportunities
-        </div>
+    <!-- HERO -->
+    <section class="hero section" id="about">
 
-        <p class="kicker">SOFTWARE DEVELOPER</p>
+      <div class="hero-content reveal">
+
+        <p class="eyebrow">
+          SOFTWARE DEVELOPER
+        </p>
 
         <h1>
-            Building digital<br>
-            <em>experiences</em> that feel good.
+          Building digital experiences
+          <span>that feel good.</span>
         </h1>
 
-        <p class="hero-text">
-            I'm Mohammed Sameer, a passionate developer focused on building
-            reliable, responsive web applications with polished
-            user experiences.
+        <p class="hero-description">
+          I'm Mohammed Sameer, a BCA graduate focused on building
+          reliable, responsive web applications with practical
+          functionality and polished user experiences.
         </p>
 
         <div class="hero-actions">
-            <a class="btn primary" href="resume.pdf" download>
-                <i class="fas fa-download"></i>
-                Download Resume
-            </a>
 
-            <a class="btn ghost" href="#projects">
-                View My Work
-                <i class="fas fa-arrow-down"></i>
-            </a>
+          <a
+            href="resume.pdf"
+            class="btn btn-primary"
+            download="Sameer_Mohammed_Resume.pdf"
+          >
+            <i class="fa-solid fa-download" aria-hidden="true"></i>
+            Download Resume
+          </a>
+
+          <a href="#projects" class="btn btn-secondary">
+            View My Work
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+
         </div>
 
         <div class="social-links">
-            <a href="mailto:mohammedsameer74111@gmail.com" aria-label="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
 
-            <a href="https://github.com/mohammedsameer07s" target="_blank" rel="noopener" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
+          <a
+            href="mailto:mohammedsameer74111@gmail.com"
+            aria-label="Send email"
+          >
+            <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+          </a>
 
-            <a href="https://www.linkedin.com/in/mohammed-sameer-65a860308/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
+          <a
+            href="https://github.com/Mohammedsameer07s"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub profile"
+          >
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+          </a>
 
-            <a href="https://instagram.com/mohammedsameer07s" target="_blank" rel="noopener" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-        </div>
+          <a
+            href="https://www.linkedin.com/in/mohammed-sameer-65a860308/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile"
+          >
+            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+          </a>
 
-    </div>
-
-
-    <!-- PROFILE -->
-    <div class="hero-visual reveal">
-
-        <div class="visual-ring"></div>
-
-        <div class="profile-card">
-
-            <div class="card-top">
-                <span>PROFILE</span>
-                <i class="fas fa-ellipsis"></i>
-            </div>
-
-            <div class="profile-frame">
-                <img src="profile.jpeg" alt="Mohammed Sameer">
-            </div>
-
-            <div class="profile-meta">
-                <div>
-                    <span>Mohammed Sameer</span>
-                    <small>Developer · Designer</small>
-                </div>
-
-                <span class="verified">
-                    <i class="fas fa-check"></i>
-                </span>
-            </div>
-
-            <div class="mini-stats">
-                <span>
-                    <b>PHP</b>
-                    <small>Core</small>
-                </span>
-
-                <span>
-                    <b>JS</b>
-                    <small>Frontend</small>
-                </span>
-
-                <span>
-                    <b>UI</b>
-                    <small>Design</small>
-                </span>
-            </div>
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
 
         </div>
 
-    </div>
-
-</section>
+      </div>
 
 
-<!-- EXPERIENCE -->
-<section id="experience" class="section compact-section reveal">
+      <div class="hero-image-wrap reveal">
 
-    <div class="section-heading">
-        <span class="eyebrow">EXPERIENCE</span>
-        <h2>What I bring.</h2>
-    </div>
+        <div class="hero-image-glow"></div>
 
-    <div class="experience-card">
+        <div class="hero-image-card">
 
-        <div class="exp-icon">
-            <i class="fas fa-laptop-code"></i>
+          <img
+            src="profile.jpeg"
+            alt="Mohammed Sameer"
+            width="330"
+            height="330"
+            fetchpriority="high"
+          >
+
         </div>
+
+        <div class="floating-card">
+          <span class="status-dot"></span>
+          <span>Available for opportunities</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE -->
+    <section class="section content-section" id="experience">
+
+      <div class="section-heading reveal">
+
+        <span class="section-number">01</span>
 
         <div>
-            <h3>Software & Web Development</h3>
+          <p class="eyebrow">BACKGROUND</p>
+          <h2>Experience</h2>
+        </div>
 
-            <p>
-                Hands-on project experience building responsive websites and
-                web applications using PHP, MySQL, JavaScript, HTML and CSS.
+      </div>
+
+
+      <div class="experience-card reveal">
+
+        <div class="experience-top">
+
+          <div>
+            <p class="experience-period">
+              Project Experience
             </p>
+
+            <h3>
+              Software &amp; Web Development
+            </h3>
+          </div>
+
+          <span class="experience-badge">
+            BCA
+          </span>
+
         </div>
 
-    </div>
-
-</section>
-
-
-<!-- PROJECTS -->
-<section id="projects" class="section reveal">
-
-    <div class="section-heading split">
-
-        <div>
-            <span class="eyebrow">SELECTED WORK</span>
-            <h2>Projects with purpose.</h2>
-        </div>
-
-        <p>
-            Some of the work I've built while learning, experimenting and
-            solving real-world problems.
+        <p class="experience-description">
+          Hands-on development experience through academic and
+          personal projects, with a focus on web applications,
+          databases, responsive interfaces and practical
+          problem solving.
         </p>
 
-    </div>
-
-
-    <div class="projects-grid">
-
-        <article class="project-card">
-
-            <div class="project-visual labour">
-                <i class="fas fa-users"></i>
-            </div>
-
-            <div class="project-body">
-
-                <div class="project-title">
-                    <h3>E-Labour</h3>
-
-                    <a href="https://github.com/mohammedsameer07s/E-Labour"
-                       target="_blank"
-                       rel="noopener"
-                       aria-label="E-Labour GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-
-                <p>
-                    A platform connecting labourers with employers based on
-                    skills and availability.
-                </p>
-
-                <div class="tags">
-                    <span>PHP</span>
-                    <span>MySQL</span>
-                    <span>HTML/CSS</span>
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <article class="project-card">
-
-            <div class="project-visual child">
-                <i class="fas fa-location-dot"></i>
-            </div>
-
-            <div class="project-body">
-
-                <div class="project-title">
-                    <h3>Find My Child</h3>
-
-                    <a href="https://github.com/mohammedsameer07s/FindMyChild"
-                       target="_blank"
-                       rel="noopener"
-                       aria-label="Find My Child GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-
-                <p>
-                    A community-focused platform designed to help spread
-                    missing-child alerts and information.
-                </p>
-
-                <div class="tags">
-                    <span>PHP</span>
-                    <span>MySQL</span>
-                    <span>JavaScript</span>
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <article class="project-card">
-
-            <div class="project-visual portfolio">
-                <i class="fas fa-layer-group"></i>
-            </div>
-
-            <div class="project-body">
-
-                <div class="project-title">
-                    <h3>Portfolio Website</h3>
-
-                    <a href="https://github.com/mohammedsameer07s"
-                       target="_blank"
-                       rel="noopener"
-                       aria-label="Portfolio GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-
-                <p>
-                    A responsive personal portfolio with a premium visual
-                    system, smooth interactions and modern UI.
-                </p>
-
-                <div class="tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                </div>
-
-            </div>
-
-        </article>
-
-    </div>
-
-</section>
-
-
-<!-- SKILLS -->
-<section id="skills" class="section reveal">
-
-    <div class="section-heading">
-        <span class="eyebrow">CAPABILITIES</span>
-        <h2>Tools I work with.</h2>
-    </div>
-
-
-    <div class="skills-layout">
-
-        <div class="skill-panel">
-
-            <h3>Development</h3>
-
-            <p>
-                Building functional, responsive and maintainable web
-                experiences.
-            </p>
-
-            <div class="skill-list">
-
-                <span>
-                    <i class="fab fa-php"></i>
-                    PHP
-                </span>
-
-                <span>
-                    <i class="fab fa-js"></i>
-                    JavaScript
-                </span>
-
-                <span>
-                    <i class="fab fa-python"></i>
-                    Python
-                </span>
-
-                <span>
-                    <i class="fas fa-database"></i>
-                    MySQL
-                </span>
-
-            </div>
-
+        <div class="tag-list">
+          <span>PHP</span>
+          <span>MySQL</span>
+          <span>JavaScript</span>
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>Git</span>
+          <span>GitHub</span>
         </div>
 
+      </div>
 
-        <div class="skill-panel">
-
-            <h3>Interface</h3>
-
-            <p>
-                Turning ideas into clean interfaces with thoughtful visual
-                hierarchy.
-            </p>
-
-            <div class="skill-list">
-
-                <span>
-                    <i class="fab fa-html5"></i>
-                    HTML
-                </span>
-
-                <span>
-                    <i class="fab fa-css3-alt"></i>
-                    CSS
-                </span>
-
-                <span>
-                    <i class="fas fa-pen-nib"></i>
-                    Figma
-                </span>
-
-                <span>
-                    <i class="fas fa-mobile-screen"></i>
-                    Responsive UI
-                </span>
-
-            </div>
-
-        </div>
+    </section>
 
 
-        <div class="skill-panel">
+    <!-- PROJECTS -->
+    <section class="section content-section" id="projects">
 
-            <h3>Strengths</h3>
+      <div class="section-heading reveal">
 
-            <p>
-                Curious, adaptable and focused on solving problems effectively.
-            </p>
-
-            <div class="skill-list">
-
-                <span>
-                    <i class="fas fa-lightbulb"></i>
-                    Problem Solving
-                </span>
-
-                <span>
-                    <i class="fas fa-users"></i>
-                    Teamwork
-                </span>
-
-                <span>
-                    <i class="fas fa-comments"></i>
-                    Communication
-                </span>
-
-                <span>
-                    <i class="fas fa-clock"></i>
-                    Time Management
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- EDUCATION -->
-<section class="section education reveal">
-
-    <div class="education-card">
+        <span class="section-number">02</span>
 
         <div>
-            <span class="eyebrow">EDUCATION</span>
-
-            <h2>Bachelor of Computer Applications</h2>
-
-            <p>DAVANGERE University</p>
+          <p class="eyebrow">SELECTED WORK</p>
+          <h2>Projects</h2>
         </div>
 
-        <div class="degree-icon">
-            <i class="fas fa-graduation-cap"></i>
+      </div>
+
+
+      <div class="projects-grid">
+
+
+        <!-- E-LABOUR -->
+        <article class="project-card reveal">
+
+          <div class="project-number">
+            01
+          </div>
+
+          <div class="project-header">
+
+            <div>
+              <p class="project-type">
+                WEB APPLICATION
+              </p>
+
+              <h3>E-Labour</h3>
+            </div>
+
+            <i
+              class="fa-solid fa-arrow-up-right-from-square project-icon"
+              aria-hidden="true"
+            ></i>
+
+          </div>
+
+          <p class="project-description">
+            A web platform designed to connect users with labour
+            and service providers based on skills, requirements
+            and availability.
+          </p>
+
+          <div class="project-details">
+
+            <h4>What I built</h4>
+
+            <ul>
+              <li>User registration and authentication</li>
+              <li>Database-driven labour/service management</li>
+              <li>Search and filtering functionality</li>
+              <li>Responsive user interface</li>
+            </ul>
+
+          </div>
+
+          <div class="project-stack">
+            <span>PHP</span>
+            <span>MySQL</span>
+            <span>JavaScript</span>
+            <span>HTML</span>
+            <span>CSS</span>
+          </div>
+
+          <div class="project-links">
+
+            <a
+              href="https://github.com/mohammedsameer07s/E-Labour"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- FIND MY CHILD -->
+        <article class="project-card reveal">
+
+          <div class="project-number">
+            02
+          </div>
+
+          <div class="project-header">
+
+            <div>
+              <p class="project-type">
+                WEB APPLICATION
+              </p>
+
+              <h3>Find My Child</h3>
+            </div>
+
+            <i
+              class="fa-solid fa-arrow-up-right-from-square project-icon"
+              aria-hidden="true"
+            ></i>
+
+          </div>
+
+          <p class="project-description">
+            A community-focused web platform designed to help
+            share missing-child alerts and relevant information.
+          </p>
+
+          <div class="project-details">
+
+            <h4>What I built</h4>
+
+            <ul>
+              <li>Child information and alert management</li>
+              <li>Database-backed records</li>
+              <li>Search and information discovery</li>
+              <li>Responsive web interface</li>
+            </ul>
+
+          </div>
+
+          <div class="project-stack">
+            <span>PHP</span>
+            <span>MySQL</span>
+            <span>JavaScript</span>
+            <span>HTML</span>
+            <span>CSS</span>
+          </div>
+
+          <div class="project-links">
+
+            <a
+              href="https://github.com/mohammedsameer07s/FindMyChild"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- PORTFOLIO -->
+        <article class="project-card reveal">
+
+          <div class="project-number">
+            03
+          </div>
+
+          <div class="project-header">
+
+            <div>
+              <p class="project-type">
+                PERSONAL PROJECT
+              </p>
+
+              <h3>Portfolio Website</h3>
+            </div>
+
+            <i
+              class="fa-solid fa-arrow-up-right-from-square project-icon"
+              aria-hidden="true"
+            ></i>
+
+          </div>
+
+          <p class="project-description">
+            A responsive personal portfolio designed to present
+            projects, technical skills, education and contact
+            information in a recruiter-friendly format.
+          </p>
+
+          <div class="project-details">
+
+            <h4>What I built</h4>
+
+            <ul>
+              <li>Responsive single-page layout</li>
+              <li>Mobile navigation and scroll interactions</li>
+              <li>Accessible project and social links</li>
+              <li>SEO and performance-focused structure</li>
+            </ul>
+
+          </div>
+
+          <div class="project-stack">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>GitHub</span>
+            <span>Netlify</span>
+          </div>
+
+          <div class="project-links">
+
+            <a
+              href="https://sameer7.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Demo
+              <i
+                class="fa-solid fa-arrow-up-right-from-square"
+                aria-hidden="true"
+              ></i>
+            </a>
+
+            <a
+              href="https://github.com/mohammedsameer07s/Portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section class="section content-section" id="skills">
+
+      <div class="section-heading reveal">
+
+        <span class="section-number">03</span>
+
+        <div>
+          <p class="eyebrow">TECHNICAL TOOLKIT</p>
+          <h2>Skills</h2>
         </div>
 
-    </div>
-
-</section>
+      </div>
 
 
-<!-- CONTACT -->
-<section id="contact" class="section contact reveal">
+      <div class="skills-layout">
 
-    <div class="contact-card">
+        <div class="skills-card reveal">
+
+          <h3>Technologies</h3>
+
+          <div class="skills-grid">
+
+            <div class="skill-item">
+              <i class="fa-brands fa-php" aria-hidden="true"></i>
+              <span>PHP</span>
+            </div>
+
+            <div class="skill-item">
+              <i class="fa-brands fa-js" aria-hidden="true"></i>
+              <span>JavaScript</span>
+            </div>
+
+            <div class="skill-item">
+              <i class="fa-brands fa-python" aria-hidden="true"></i>
+              <span>Python</span>
+            </div>
+
+            <div class="skill-item">
+              <i class="fa-solid fa-database" aria-hidden="true"></i>
+              <span>MySQL</span>
+            </div>
+
+            <div class="skill-item">
+              <i class="fa-brands fa-html5" aria-hidden="true"></i>
+              <span>HTML</span>
+            </div>
+
+            <div class="skill-item">
+              <i class="fa-brands fa-css3-alt" aria-hidden="true"></i>
+              <span>CSS</span>
+            </div>
+
+            <div class="skill-item">
+              <i class="fa-brands fa-git-alt" aria-hidden="true"></i>
+              <span>Git</span>
+            </div>
+
+            <div class="skill-item">
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+              <span>GitHub</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="skills-card reveal">
+
+          <h3>Strengths</h3>
+
+          <div class="strength-list">
+
+            <div class="strength">
+              <span>01</span>
+              <p>Responsive Web Development</p>
+            </div>
+
+            <div class="strength">
+              <span>02</span>
+              <p>Database-driven Applications</p>
+            </div>
+
+            <div class="strength">
+              <span>03</span>
+              <p>Problem Solving</p>
+            </div>
+
+            <div class="strength">
+              <span>04</span>
+              <p>Clean User Interfaces</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section class="section content-section education-section">
+
+      <div class="section-heading reveal">
+
+        <span class="section-number">04</span>
+
+        <div>
+          <p class="eyebrow">ACADEMIC BACKGROUND</p>
+          <h2>Education</h2>
+        </div>
+
+      </div>
+
+
+      <div class="education-card reveal">
+
+        <div class="education-icon">
+          <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+        </div>
 
         <div>
 
-            <span class="eyebrow">CONTACT</span>
+          <p class="education-level">
+            BACHELOR'S DEGREE
+          </p>
 
-            <h2>
-                Have an idea?<br>
-                <em>Let's build it.</em>
-            </h2>
+          <h3>
+            Bachelor of Computer Applications
+          </h3>
 
-            <p>
-                I'm open to exciting opportunities, collaborations and
-                projects.
-            </p>
-
-        </div>
-
-        <div class="contact-actions">
-
-            <a class="btn primary"
-               href="mailto:mohammedsameer74111@gmail.com">
-                Get in Touch
-                <i class="fas fa-arrow-right"></i>
-            </a>
-
-            <a class="mail-link"
-               href="mailto:mohammedsameer74111@gmail.com">
-                mohammedsameer74111@gmail.com
-            </a>
+          <p>
+            Davangere University
+          </p>
 
         </div>
 
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+
+      <div class="contact-content reveal">
+
+        <p class="eyebrow">
+          HAVE AN OPPORTUNITY?
+        </p>
+
+        <h2>
+          Let's build something
+          <span>useful.</span>
+        </h2>
+
+        <p>
+          I'm open to entry-level software development,
+          web development and related technology opportunities.
+        </p>
+
+        <a
+          href="mailto:mohammedsameer74111@gmail.com"
+          class="btn btn-primary contact-btn"
+        >
+          Get In Touch
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div>
+      <strong>Mohammed Sameer</strong>
+      <span>Software Developer</span>
     </div>
 
-</section>
+    <div class="footer-links">
 
-</main>
+      <a
+        href="https://github.com/Mohammedsameer07s"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub
+      </a>
 
+      <a
+        href="https://www.linkedin.com/in/mohammed-sameer-65a860308/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
 
-<!-- FOOTER -->
-<footer>
+      <a href="mailto:mohammedsameer74111@gmail.com">
+        Email
+      </a>
 
-    <div class="footer-brand">
-        <span>MS</span>
-        Mohammed Sameer
     </div>
 
     <p>
-        Designed & built with intention · © 2026
+      © <span id="current-year"></span> Mohammed Sameer
     </p>
 
-    <div class="footer-social">
+  </footer>
 
-        <a href="https://github.com/mohammedsameer07s"
-           target="_blank"
-           rel="noopener"
-           aria-label="GitHub">
-            <i class="fab fa-github"></i>
-        </a>
 
-        <a href="https://www.linkedin.com/in/mohammed-sameer-65a860308/"
-           target="_blank"
-           rel="noopener"
-           aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-        </a>
-
-    </div>
-
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js" defer></script>
 
 </body>
 </html>
