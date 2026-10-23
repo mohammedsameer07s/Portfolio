@@ -140,8 +140,8 @@
     launcher.addEventListener("click",()=>toggleChat(!panel.classList.contains("open")));close.addEventListener("click",()=>toggleChat(false));
     const addMessage=(text,who)=>{const div=document.createElement("div");div.className="chat-message "+who;div.textContent=text;messages.appendChild(div);messages.scrollTop=messages.scrollHeight;return div;};
     form.addEventListener("submit",async event=>{event.preventDefault();const question=input.value.trim();if(!question)return;addMessage(question,"user");input.value="";input.disabled=true;const send=form.querySelector("button");send.disabled=true;const waiting=addMessage("Thinking…","bot");
-      try{const response=await fetch("/.netlify/functions/portfolio-chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:question})});if(!response.ok)throw new Error("Chat service is not configured yet.");const data=await response.json();waiting.textContent=data.reply||"I couldn't find an answer. You can contact Sameer on WhatsApp."; }
-      catch(error){waiting.textContent="I can answer basic questions about Sameer's portfolio, but the AI service may not be configured yet. For direct contact, use the green WhatsApp button."; }
+      try{const response=await fetch("/.netlify/functions/portfolio-chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({   messages:[{role:"user",content:question}] })});if(!response.ok){   const errorData=await response.json().catch(()=>({}));   throw new Error(errorData.error||"Chat service error: "+response.status); }const data=await response.json();waiting.textContent=data.reply||"I couldn't find an answer. You can contact Sameer on WhatsApp."; }
+      catch(error){   console.error("Portfolio chatbot error:",error);   waiting.textContent=error.message||"Chat service unavailable. Please try again."; }
       finally{input.disabled=false;send.disabled=false;input.focus();messages.scrollTop=messages.scrollHeight;}
     });
   });
