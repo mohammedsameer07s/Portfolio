@@ -1,95 +1,327 @@
+```javascript
 /* =====================================
-   SAMEER'S AI PORTFOLIO CHATBOT
+   SAMEER'S PORTFOLIO JAVASCRIPT
+   Navigation + Animations + Theme + AI Chatbot
 ===================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-  const chatButton = document.getElementById("chatbot-toggle");
-  const chatWindow = document.getElementById("chatbot-window");
-  const chatForm = document.getElementById("chatbot-form");
-  const chatInput = document.getElementById("chatbot-input");
-  const chatMessages = document.getElementById("chatbot-messages");
+  // =====================================
+  // 1. CURRENT YEAR
+  // =====================================
+  const year = document.getElementById("current-year");
 
-  // Stop safely if chatbot HTML has not been added yet.
-  if (!chatButton || !chatWindow || !chatForm || !chatInput || !chatMessages) {
-    console.info("Portfolio chatbot UI has not been added yet.");
-    return;
+  if (year) {
+    year.textContent = new Date().getFullYear();
   }
 
-  const history = [];
+  // =====================================
+  // 2. MOBILE NAVIGATION
+  // =====================================
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+  const navItems = document.querySelectorAll(".nav-link");
 
-  function addMessage(text, sender) {
-    const message = document.createElement("div");
-    message.className = `chat-message ${sender}`;
-    message.textContent = text;
-    chatMessages.appendChild(message);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-    return message;
-  }
+  function closeMenu() {
+    navLinks?.classList.remove("open");
+    document.body.classList.remove("menu-open");
 
-  chatButton.addEventListener("click", () => {
-    const isOpen = chatWindow.classList.toggle("open");
-    chatButton.setAttribute("aria-expanded", String(isOpen));
-
-    if (isOpen) {
-      chatInput.focus();
+    if (menuToggle) {
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+      menuToggle.innerHTML =
+        '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
     }
-  });
+  }
 
-  chatForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
 
-    const question = chatInput.value.trim();
-
-    if (!question) return;
-
-    addMessage(question, "user");
-    chatInput.value = "";
-    chatInput.disabled = true;
-
-    const loadingMessage = addMessage("Thinking...", "assistant");
-
-    try {
-      const response = await fetch(
-        "/.netlify/functions/portfolio-chat",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            messages: [
-              ...history,
-              { role: "user", content: question }
-            ]
-          })
-        }
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
       );
 
-      const data = await response.json();
+      menuToggle.innerHTML = isOpen
+        ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>'
+        : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
 
-      if (!response.ok || !data.success || !data.reply) {
-        throw new Error(data.error || "The chatbot is temporarily unavailable.");
+      document.body.classList.toggle("menu-open", isOpen);
+    });
+
+    navItems.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("click", (event) => {
+      if (
+        navLinks.classList.contains("open") &&
+        !event.target.closest(".side-nav")
+      ) {
+        closeMenu();
       }
+    });
 
-      loadingMessage.textContent = data.reply;
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 800) {
+        closeMenu();
+      }
+    });
+  }
 
-      history.push(
-        { role: "user", content: question },
-        { role: "assistant", content: data.reply }
+  // =====================================
+  // 3. SCROLL REVEAL ANIMATIONS
+  // =====================================
+  const revealElements = document.querySelectorAll(".reveal");
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            currentObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    revealElements.forEach((element) => observer.observe(element));
+  } else {
+    revealElements.forEach((element) => {
+      element.classList.add("visible");
+    });
+  }
+
+  // =====================================
+  // 4. ACTIVE NAVIGATION ON SCROLL
+  // =====================================
+  const sections = document.querySelectorAll("main section[id]");
+  const sideNav = document.querySelector(".side-nav");
+
+  function updateNavigation() {
+    const scrollPosition = window.scrollY + 180;
+    let currentSection = "";
+
+    sections.forEach((section) => {
+      if (
+        scrollPosition >= section.offsetTop &&
+        scrollPosition < section.offsetTop + section.offsetHeight
+      ) {
+        currentSection = section.id;
+      }
+    });
+
+    navItems.forEach((link) => {
+      link.classList.toggle(
+        "active",
+        link.getAttribute("href") === `#${currentSection}`
       );
+    });
 
-      // Keep the conversation history manageable.
-      if (history.length > 10) {
-        history.splice(0, history.length - 10);
+    sideNav?.classList.toggle("scrolled", window.scrollY > 30);
+  }
+
+  window.addEventListener("scroll", updateNavigation, { passive: true });
+  updateNavigation();
+
+  // =====================================
+  // 5. LIGHT / DARK THEME
+  // =====================================
+  const themeButton = document.getElementById("theme-toggle");
+
+  let savedTheme = "dark";
+
+  try {
+    savedTheme = localStorage.getItem("sameer-portfolio-theme") || "dark";
+  } catch (error) {
+    console.info("Theme preference storage is unavailable.");
+  }
+
+  if (savedTheme === "light") {
+    document.body.classList.add("light-theme");
+  }
+
+  function updateThemeButton() {
+    if (!themeButton) return;
+
+    const isLight = document.body.classList.contains("light-theme");
+
+    themeButton.innerHTML = isLight
+      ? '<i class="fa-solid fa-moon" aria-hidden="true"></i>'
+      : '<i class="fa-solid fa-sun" aria-hidden="true"></i>';
+
+    themeButton.setAttribute(
+      "aria-label",
+      isLight ? "Switch to dark mode" : "Switch to light mode"
+    );
+
+    themeButton.title = isLight
+      ? "Switch to dark mode"
+      : "Switch to light mode";
+  }
+
+  updateThemeButton();
+
+  if (themeButton) {
+    themeButton.addEventListener("click", () => {
+      document.body.classList.toggle("light-theme");
+
+      const theme = document.body.classList.contains("light-theme")
+        ? "light"
+        : "dark";
+
+      try {
+        localStorage.setItem("sameer-portfolio-theme", theme);
+      } catch (error) {
+        console.info("Could not save theme preference.");
       }
-    } catch (error) {
-      loadingMessage.textContent =
-        error.message ||
-        "Sorry, I couldn't connect. Please try again.";
-    } finally {
-      chatInput.disabled = false;
-      chatInput.focus();
+
+      updateThemeButton();
+    });
+  }
+
+  // =====================================
+  // 6. AI CHATBOT
+  // Uses existing IDs from index.html
+  // =====================================
+  const chatButton = document.getElementById("chat-launcher");
+  const chatPanel = document.getElementById("chat-panel");
+  const chatClose = document.getElementById("chat-close");
+  const chatForm = document.getElementById("chat-form");
+  const chatInput = document.getElementById("chat-input");
+  const chatMessages = document.getElementById("chat-messages");
+
+  if (
+    chatButton &&
+    chatPanel &&
+    chatClose &&
+    chatForm &&
+    chatInput &&
+    chatMessages
+  ) {
+    const conversationHistory = [];
+    const sendButton = chatForm.querySelector('button[type="submit"]');
+
+    function toggleChat(show) {
+      chatPanel.classList.toggle("open", show);
+      chatPanel.setAttribute("aria-hidden", String(!show));
+      chatButton.setAttribute("aria-expanded", String(show));
+
+      if (show) {
+        chatInput.focus();
+      }
+    }
+
+    chatButton.setAttribute("aria-expanded", "false");
+
+    chatButton.addEventListener("click", () => {
+      toggleChat(!chatPanel.classList.contains("open"));
+    });
+
+    chatClose.addEventListener("click", () => {
+      toggleChat(false);
+    });
+
+    function addChatMessage(text, sender) {
+      const message = document.createElement("div");
+
+      message.className = `chat-message ${sender}`;
+      message.textContent = text;
+
+      chatMessages.appendChild(message);
       chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      return message;
     }
-  });
+
+    chatForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const question = chatInput.value.trim();
+
+      if (!question || chatInput.disabled) return;
+
+      addChatMessage(question, "user");
+
+      chatInput.value = "";
+      chatInput.disabled = true;
+
+      if (sendButton) sendButton.disabled = true;
+
+      const loadingMessage = addChatMessage("Thinking...", "bot");
+
+      try {
+        const response = await fetch(
+          "/.netlify/functions/portfolio-chat",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              messages: [
+                ...conversationHistory,
+                {
+                  role: "user",
+                  content: question
+                }
+              ]
+            })
+          }
+        );
+
+        let data;
+
+        try {
+          data = await response.json();
+        } catch (error) {
+          throw new Error(
+            "The server returned an invalid response. Please try again."
+          );
+        }
+
+        if (!response.ok || !data.success || !data.reply) {
+          throw new Error(
+            data.error || "The AI assistant is temporarily unavailable."
+          );
+        }
+
+        loadingMessage.textContent = data.reply;
+
+        conversationHistory.push(
+          { role: "user", content: question },
+          { role: "assistant", content: data.reply }
+        );
+
+        // Keep the latest 10 messages for context.
+        if (conversationHistory.length > 10) {
+          conversationHistory.splice(
+            0,
+            conversationHistory.length - 10
+          );
+        }
+      } catch (error) {
+        console.error("Portfolio chatbot error:", error);
+
+        loadingMessage.textContent =
+          error.message ||
+          "Sorry, I couldn't connect. Please try again.";
+      } finally {
+        chatInput.disabled = false;
+
+        if (sendButton) sendButton.disabled = false;
+
+        chatInput.focus();
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+    });
+  } else {
+    console.warn(
+      "Chatbot could not start because one or more HTML elements are missing."
+    );
+  }
 });
+```
