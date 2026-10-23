@@ -1,22 +1,12 @@
-```javascript
-/* =====================================
-   SAMEER'S PORTFOLIO JAVASCRIPT
-   Navigation + Animations + Theme + AI Chatbot
-===================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // =====================================
-  // 1. CURRENT YEAR
-  // =====================================
+
   const year = document.getElementById("current-year");
 
   if (year) {
     year.textContent = new Date().getFullYear();
   }
 
-  // =====================================
-  // 2. MOBILE NAVIGATION
-  // =====================================
   const menuToggle = document.getElementById("menu-toggle");
   const navLinks = document.getElementById("nav-links");
   const navItems = document.querySelectorAll(".nav-link");
@@ -70,9 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // =====================================
-  // 3. SCROLL REVEAL ANIMATIONS
-  // =====================================
   const revealElements = document.querySelectorAll(".reveal");
 
   if ("IntersectionObserver" in window) {
@@ -95,9 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // =====================================
-  // 4. ACTIVE NAVIGATION ON SCROLL
-  // =====================================
   const sections = document.querySelectorAll("main section[id]");
   const sideNav = document.querySelector(".side-nav");
 
@@ -127,66 +111,61 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", updateNavigation, { passive: true });
   updateNavigation();
 
-  // =====================================
-  // 5. LIGHT / DARK THEME
-  // =====================================
+
   const themeButton = document.getElementById("theme-toggle");
 
-  let savedTheme = "dark";
+  function applyTheme(theme) {
+    const isLight = theme === "light";
+
+    document.body.classList.toggle("light-theme", isLight);
+    document.documentElement.style.colorScheme = isLight ? "light" : "dark";
+
+    if (themeButton) {
+      themeButton.innerHTML = isLight
+        ? '<i class="fa-solid fa-moon" aria-hidden="true"></i>'
+        : '<i class="fa-solid fa-sun" aria-hidden="true"></i>';
+
+      themeButton.setAttribute(
+        "aria-label",
+        isLight ? "Switch to dark mode" : "Switch to light mode"
+      );
+
+      themeButton.title = isLight
+        ? "Switch to dark mode"
+        : "Switch to light mode";
+    }
+  }
+
+  let initialTheme = "dark";
 
   try {
-    savedTheme = localStorage.getItem("sameer-portfolio-theme") || "dark";
+    initialTheme =
+      localStorage.getItem("sameer-portfolio-theme") || "dark";
   } catch (error) {
     console.info("Theme preference storage is unavailable.");
   }
 
-  if (savedTheme === "light") {
-    document.body.classList.add("light-theme");
-  }
-
-  function updateThemeButton() {
-    if (!themeButton) return;
-
-    const isLight = document.body.classList.contains("light-theme");
-
-    themeButton.innerHTML = isLight
-      ? '<i class="fa-solid fa-moon" aria-hidden="true"></i>'
-      : '<i class="fa-solid fa-sun" aria-hidden="true"></i>';
-
-    themeButton.setAttribute(
-      "aria-label",
-      isLight ? "Switch to dark mode" : "Switch to light mode"
-    );
-
-    themeButton.title = isLight
-      ? "Switch to dark mode"
-      : "Switch to light mode";
-  }
-
-  updateThemeButton();
+  applyTheme(initialTheme);
 
   if (themeButton) {
     themeButton.addEventListener("click", () => {
-      document.body.classList.toggle("light-theme");
+      const isCurrentlyLight =
+        document.body.classList.contains("light-theme");
 
-      const theme = document.body.classList.contains("light-theme")
-        ? "light"
-        : "dark";
+      const nextTheme = isCurrentlyLight ? "dark" : "light";
+
+      applyTheme(nextTheme);
 
       try {
-        localStorage.setItem("sameer-portfolio-theme", theme);
+        localStorage.setItem("sameer-portfolio-theme", nextTheme);
       } catch (error) {
         console.info("Could not save theme preference.");
       }
-
-      updateThemeButton();
     });
   }
 
-  // =====================================
-  // 6. AI CHATBOT
-  // Uses existing IDs from index.html
-  // =====================================
+
+  
   const chatButton = document.getElementById("chat-launcher");
   const chatPanel = document.getElementById("chat-panel");
   const chatClose = document.getElementById("chat-close");
@@ -324,4 +303,3 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 });
-```
