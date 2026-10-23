@@ -1,319 +1,95 @@
+/* =====================================
+   SAMEER'S AI PORTFOLIO CHATBOT
+===================================== */
+
 document.addEventListener("DOMContentLoaded", () => {
+  const chatButton = document.getElementById("chatbot-toggle");
+  const chatWindow = document.getElementById("chatbot-window");
+  const chatForm = document.getElementById("chatbot-form");
+  const chatInput = document.getElementById("chatbot-input");
+  const chatMessages = document.getElementById("chatbot-messages");
 
-  const menuToggle = document.getElementById("menu-toggle");
-  const navLinks = document.getElementById("nav-links");
-  const navItems = document.querySelectorAll(".nav-link");
-  const sections = document.querySelectorAll("main section[id]");
-  const yearElement = document.getElementById("current-year");
-
-
-  /* CURRENT YEAR */
-
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
+  // Stop safely if chatbot HTML has not been added yet.
+  if (!chatButton || !chatWindow || !chatForm || !chatInput || !chatMessages) {
+    console.info("Portfolio chatbot UI has not been added yet.");
+    return;
   }
 
+  const history = [];
 
-  /* MOBILE MENU */
-
-  if (menuToggle && navLinks) {
-
-    menuToggle.addEventListener("click", () => {
-
-      const isOpen =
-        navLinks.classList.toggle("open");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-
-      menuToggle.setAttribute(
-        "aria-label",
-        isOpen
-          ? "Close navigation menu"
-          : "Open navigation menu"
-      );
-
-      document.body.classList.toggle(
-        "menu-open",
-        isOpen
-      );
-
-      const icon =
-        menuToggle.querySelector("i");
-
-      if (icon) {
-
-        icon.className = isOpen
-          ? "fa-solid fa-xmark"
-          : "fa-solid fa-bars";
-
-        icon.setAttribute(
-          "aria-hidden",
-          "true"
-        );
-
-      }
-
-    });
-
+  function addMessage(text, sender) {
+    const message = document.createElement("div");
+    message.className = `chat-message ${sender}`;
+    message.textContent = text;
+    chatMessages.appendChild(message);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    return message;
   }
 
+  chatButton.addEventListener("click", () => {
+    const isOpen = chatWindow.classList.toggle("open");
+    chatButton.setAttribute("aria-expanded", String(isOpen));
 
-  /* CLOSE MOBILE MENU */
-
-  navItems.forEach((link) => {
-
-    link.addEventListener("click", () => {
-
-      if (!navLinks || !menuToggle) {
-        return;
-      }
-
-      navLinks.classList.remove("open");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      menuToggle.setAttribute(
-        "aria-label",
-        "Open navigation menu"
-      );
-
-      document.body.classList.remove(
-        "menu-open"
-      );
-
-      const icon =
-        menuToggle.querySelector("i");
-
-      if (icon) {
-        icon.className =
-          "fa-solid fa-bars";
-
-        icon.setAttribute(
-          "aria-hidden",
-          "true"
-        );
-      }
-
-    });
-
+    if (isOpen) {
+      chatInput.focus();
+    }
   });
 
+  chatForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-  /* CLOSE MENU WHEN CLICKING OUTSIDE */
+    const question = chatInput.value.trim();
 
-  document.addEventListener("click", (event) => {
+    if (!question) return;
 
-    if (!navLinks || !menuToggle) {
-      return;
-    }
+    addMessage(question, "user");
+    chatInput.value = "";
+    chatInput.disabled = true;
 
-    const clickedInsideNav =
-      event.target.closest(".side-nav");
+    const loadingMessage = addMessage("Thinking...", "assistant");
 
-    if (!clickedInsideNav &&
-        navLinks.classList.contains("open")) {
-
-      navLinks.classList.remove("open");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      menuToggle.setAttribute(
-        "aria-label",
-        "Open navigation menu"
-      );
-
-      document.body.classList.remove(
-        "menu-open"
-      );
-
-      const icon =
-        menuToggle.querySelector("i");
-
-      if (icon) {
-        icon.className =
-          "fa-solid fa-bars";
-      }
-
-    }
-
-  });
-
-
-  /* REVEAL ANIMATION */
-
-  const revealElements =
-    document.querySelectorAll(".reveal");
-
-
-  if ("IntersectionObserver" in window) {
-
-    const revealObserver =
-      new IntersectionObserver(
-        (entries, observer) => {
-
-          entries.forEach((entry) => {
-
-            if (entry.isIntersecting) {
-
-              entry.target.classList.add(
-                "visible"
-              );
-
-              observer.unobserve(
-                entry.target
-              );
-
-            }
-
-          });
-
-        },
+    try {
+      const response = await fetch(
+        "/.netlify/functions/portfolio-chat",
         {
-          threshold: 0.12
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            messages: [
+              ...history,
+              { role: "user", content: question }
+            ]
+          })
         }
       );
 
+      const data = await response.json();
 
-    revealElements.forEach((element) => {
-      revealObserver.observe(element);
-    });
-
-  } else {
-
-    revealElements.forEach((element) => {
-      element.classList.add("visible");
-    });
-
-  }
-
-
-  /* ACTIVE NAVIGATION */
-
-  const updateActiveNavigation = () => {
-
-    const scrollPosition =
-      window.scrollY + 180;
-
-
-    let currentSection = "";
-
-
-    sections.forEach((section) => {
-
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-
-      if (
-        scrollPosition >= top &&
-        scrollPosition < top + height
-      ) {
-        currentSection = section.id;
+      if (!response.ok || !data.success || !data.reply) {
+        throw new Error(data.error || "The chatbot is temporarily unavailable.");
       }
 
-    });
+      loadingMessage.textContent = data.reply;
 
-
-    navItems.forEach((link) => {
-
-      const target =
-        link.getAttribute("href");
-
-      link.classList.toggle(
-        "active",
-        target === `#${currentSection}`
+      history.push(
+        { role: "user", content: question },
+        { role: "assistant", content: data.reply }
       );
 
-    });
-
-  };
-
-
-  /* HEADER SCROLL EFFECT */
-
-  const handleScroll = () => {
-
-    updateActiveNavigation();
-
-    const nav =
-      document.querySelector(".side-nav");
-
-    if (!nav) {
-      return;
-    }
-
-    if (window.scrollY > 30) {
-      nav.classList.add("scrolled");
-    } else {
-      nav.classList.remove("scrolled");
-    }
-
-  };
-
-
-  window.addEventListener(
-    "scroll",
-    handleScroll,
-    { passive: true }
-  );
-
-
-  /* RESIZE */
-
-  window.addEventListener(
-    "resize",
-    () => {
-
-      if (
-        window.innerWidth > 800 &&
-        navLinks &&
-        navLinks.classList.contains("open")
-      ) {
-
-        navLinks.classList.remove("open");
-
-        if (menuToggle) {
-
-          menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-          menuToggle.setAttribute(
-            "aria-label",
-            "Open navigation menu"
-          );
-
-          const icon =
-            menuToggle.querySelector("i");
-
-          if (icon) {
-            icon.className =
-              "fa-solid fa-bars";
-          }
-
-        }
-
-        document.body.classList.remove(
-          "menu-open"
-        );
-
+      // Keep the conversation history manageable.
+      if (history.length > 10) {
+        history.splice(0, history.length - 10);
       }
-
+    } catch (error) {
+      loadingMessage.textContent =
+        error.message ||
+        "Sorry, I couldn't connect. Please try again.";
+    } finally {
+      chatInput.disabled = false;
+      chatInput.focus();
+      chatMessages.scrollTop = chatMessages.scrollHeight;
     }
-  );
-
-
-  /* INITIAL STATE */
-
-  handleScroll();
-
+  });
 });
