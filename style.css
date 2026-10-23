@@ -1773,3 +1773,49 @@ main {
   }
 
 }
+/* Light Theme Fix */
+body.light-theme {
+background: #f5f7fb !important;
+color: #1e293b !important;
+}
+
+body.light-theme section,
+body.light-theme main,
+body.light-theme .side-nav,
+body.light-theme .hero,
+body.light-theme .about,
+body.light-theme .projects,
+body.light-theme .skills,
+body.light-theme .contact {
+color: #1e293b;
+}
+
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme p,
+body.light-theme span,
+body.light-theme .nav-link {
+color: #1e293b;
+}
+
+body.light-theme .project-card,
+body.light-theme .skill-card,
+body.light-theme .about-card,
+body.light-theme .contact-card {
+background: #ffffff !important;
+border-color: #e2e8f0 !important;
+}
+
+body.light-theme .side-nav {
+background: #ffffff !important;
+border-color: #e2e8f0 !important;
+}
+
+body.light-theme input,
+body.light-theme textarea {
+background: #ffffff !important;
+color: #1e293b !important;
+border-color: #cbd5e1 !important;
+}
+
